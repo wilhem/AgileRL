@@ -90,6 +90,8 @@ Additionally, we also define our upper and lower limits for these hyperparameter
         "EVO_EPOCHS": 20,  # Evolution frequency, i.e. evolve after every 20 episodes
         "TARGET_SCORE": 200.0,  # Target score that will beat the environment
         "EVO_LOOP": 3,  # Number of evaluation episodes
+        "EVO_STEPS", 10_000, # Number of evolution steps
+        "EVAL_STEPS": None, # Number of evaluation steps
         "MAX_STEPS": 500,  # Maximum number of steps an agent takes in an environment
         "TOURN_SIZE": 2,  # Tournament size
         "ELITISM": True,  # Elitism in tournament selection
@@ -244,7 +246,7 @@ Tournament selection and mutation should be applied sequentially to fully evolve
         rl_hp_selection=MUT_P["RL_HP_SELECTION"],
         min_lr=MUT_P["MIN_LR"],
         max_lr=MUT_P["MAX_LR"],
-        min_batch_size=MUT_P["MAX_BATCH_SIZE"],
+        min_batch_size=MUT_P["MIN_BATCH_SIZE"],
         max_batch_size=MUT_P["MAX_BATCH_SIZE"],
         min_learn_step=MUT_P["MIN_LEARN_STEP"],
         max_learn_step=MUT_P["MAX_LEARN_STEP"],
@@ -277,7 +279,7 @@ fitnesses (fitness is each agents test scores on the environment).
         INIT_HP=INIT_HP,
         MUT_P=MUT_P,
         swap_channels=INIT_HP["CHANNELS_LAST"],
-        INIT_HP["MAX_STEPS"]=INIT_HP["MAX_STEPS"],
+        max_steps=INIT_HP["MAX_STEPS"],
         evo_steps=INIT_HP["EVO_STEPS"],
         eval_steps=INIT_HP["EVAL_STEPS"],
         eval_loop=INIT_HP["EVAL_LOOP"],
